@@ -6,7 +6,7 @@ Microgrids" (IEEE PREE 2025), Table I and Table III.
 Only the 12 published points are used (latitude, GHI, HOMER PV and BESS
 capacity), so this is a first check, not a replacement for a HOMER study.
 
-Run:  python pv_bess_preliminary_analysis.py        (needs numpy only)
+Run:  python analysis.py        (needs numpy only)
 """
 import numpy as np
 
