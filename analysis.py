@@ -105,6 +105,14 @@ print(f"  Moscow predicted when left out: {loo_b['Moscow']:+.1f} % vs HOMER")
 print(f"  Atlanta predicted when left out: {loo_b['Atlanta']:+.1f} %")
 spread = bess[no_moscow].std() / bess[no_moscow].mean() * 100
 print(f"  BESS of the other 11 cities: std = {spread:.1f} % of their mean")
+# BESS in-sample MAPE
+bess_hat = np.polyval(coef_b, u)
+in_sample_mape_b = np.mean(np.abs(pct_err(bess_hat, bess)))
+print(f" in-sample MAPE = {in_sample_mape_b:.1f} %")
+
+# BESS leave-one-out MAPE
+loo_b_mape = mape(loo_b)
+print(f" leave-one-city-out MAPE = {loo_b_mape:.1f} % (12 cities)")
 
 # ------------------- 5. Is Eq.(9)/(10) just a rescaled Eq.(6)/(8)?  (paper coefficients)
 print("=" * 64)
